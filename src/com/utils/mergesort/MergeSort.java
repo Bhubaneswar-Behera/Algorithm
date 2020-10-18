@@ -1,5 +1,10 @@
 package com.utils.mergesort;
 
+/**
+ * Time Complexity O (n log n)
+ *
+ *
+ */
 public class MergeSort {
 
     int[] array;
@@ -31,7 +36,8 @@ public class MergeSort {
     private void divideArray (int lowerIndex, int higherIndex){
 
             if(lowerIndex < higherIndex){
-                int middle = lowerIndex + (higherIndex -lowerIndex)/2;
+                int middle = (lowerIndex + higherIndex)/2;
+
                 //Will be used to sort teh left side of the array
                 divideArray(lowerIndex, middle);
 
@@ -50,9 +56,11 @@ public class MergeSort {
             tempMergeArray[i] = array[i];
         }
 
+        //Making these variables i,j and k so that the originals values
+        //remain unchanged
         int i = lowerIndex;
         int j = middle +1;
-        //making lower index as we will go till the last of the higherIndex
+        //making lower index as it will go till the last of the higherIndex in the new temporary array
         int k = lowerIndex;
 
         while (i <= middle && j <= higherIndex){
@@ -75,10 +83,27 @@ public class MergeSort {
             //move to the next element of array
             k++;
         }
-        while (i <= middle) {
+        //Option 1: Put the remaining unplaced elements at the end of the array
+        /*while (i <= middle) {
             array[k] = tempMergeArray[i];
             k++;
             i++;
+        }*/
+
+        //Option 2: Put the remaining unplaced elements at the end of the array
+        if(i > middle ){
+            while (j < higherIndex){
+                array[k] = tempMergeArray[j];
+                j++;
+                k++;
+            }
+        } else{
+            while(i <= middle){
+                array[k] = tempMergeArray[i];
+                i++;
+                k++;
+
+            }
         }
     }
 
