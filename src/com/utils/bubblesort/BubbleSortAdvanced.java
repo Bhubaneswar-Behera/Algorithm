@@ -3,9 +3,9 @@ package com.utils.bubblesort;
 
 /**
  *
- * Best Case : O (n)
+ * Best Case : O (n log n)
  * Worst Case : O (n 2)
- * Average Case : Theta (n 2)
+ * Average Case : O (n log n)
  *
  */
 
