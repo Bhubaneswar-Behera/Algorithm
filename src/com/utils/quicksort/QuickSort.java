@@ -2,6 +2,9 @@ package com.utils.quicksort;
 
 /**
  *
+ *   Best Case : O (n log n )
+ *   Worst Case : O (n 2)
+ *  Average Case : O ( n 2 )
  *
  */
 public class QuickSort {
