@@ -16,7 +16,6 @@ public class SelectionSort {
         System.out.println("Before sorting");
         printArray(inputArray);
 
-
         selectionSort(inputArray);
 
         System.out.println("\n After sorting");
@@ -32,7 +31,7 @@ public class SelectionSort {
     private static void selectionSort(int[] inputArray)  {
         int i , j , max ;
 
-        for(i = inputArray.length -1 ; i > 0 ; i--) { //Shifting of the max element to the nd
+        for(i = inputArray.length -1 ; i > 0 ; i--) { //Shifting of the max element to the end
             max = 0;//assuming the first element is the biggest element
             for (j = 1 ; j <= i ; j++) {
                 if(inputArray[j] > inputArray [max]){

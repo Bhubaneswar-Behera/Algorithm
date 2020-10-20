@@ -29,8 +29,11 @@ public class InsertionSort {
         }
     }
     private static void insertionSort(int[] inputArray) {
-        int i,j,temp;
-        for(i = 1 ; i < inputArray.length ; i++){
+        int i ; //for incrementing the array
+        int j; //for comparision
+        int temp; //for  storing temporary value
+
+        for(i = 1 ; i < inputArray.length ; i++){ // Iterate over all array
             temp = inputArray [i];
             j = i;
             while ( j > 0 && inputArray [j -1] > temp) {

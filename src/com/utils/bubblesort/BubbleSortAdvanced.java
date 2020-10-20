@@ -17,7 +17,6 @@ public class BubbleSortAdvanced {
         System.out.println("Before sorting");
         printArray(inputArray);
 
-
         bubbleSort(inputArray);
 
         System.out.println("\n After sorting");
