@@ -16,7 +16,8 @@ public class BubbleSort {
         printArray(inputArray);
 
 
-        bubbleSort(inputArray);
+        //bubbleSort(inputArray);
+        bubbleSortWithIndexZero(inputArray);
 
         System.out.println("\n After sorting");
         printArray(inputArray);
@@ -28,6 +29,12 @@ public class BubbleSort {
             System.out.print(" " +inputArray[i]);
         }
     }
+
+    /**
+     * comparing from 1 to the length
+     *
+     * @param inputArray
+     */
     private static void bubbleSort(int[] inputArray) {
         for(int i = 1 ; i < inputArray.length ; i++){
             for(int j = 1 ; j < inputArray.length ; j++){
@@ -38,6 +45,24 @@ public class BubbleSort {
                 }
             }
 
+        }
+    }
+
+    /**
+     * Comparing 0 to length -1
+     *
+     * @param inputArray
+     */
+
+    private static void bubbleSortWithIndexZero(int[] inputArray) {
+        for(int i = 0 ; i < inputArray.length -1 ; i ++){
+            for(int j = 0 ; j < inputArray.length -1 ; j++) {
+                if(inputArray[j] > inputArray [j + 1] ) {
+                        int temp = inputArray [j];
+                        inputArray [j] = inputArray [j+1];
+                        inputArray [j + 1] = temp ;
+                }
+            }
         }
     }
 }
