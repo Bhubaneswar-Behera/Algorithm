@@ -18,7 +18,7 @@ public class BubbleSortAdvanced {
         printArray(inputArray);
 
         bubbleSort(inputArray);
-
+        
         System.out.println("\n After sorting");
         printArray(inputArray);
     }
@@ -30,18 +30,22 @@ public class BubbleSortAdvanced {
     }
     private static void bubbleSort(int[] inputArray) {
         boolean swapFlag = false;
-        for(int i = 1 ; i < inputArray.length && swapFlag ; i++){
+
+        for ( int i = 0; i < inputArray.length -1 && !swapFlag ; i ++) {
+
             swapFlag = true;
-            for(int j = 1 ; j < i - inputArray.length ; j++){
-                if(inputArray[j-1] > inputArray [j]){
-                    swapFlag = false ;
-                    int temp = inputArray[j -1];
-                    inputArray[j -1] = inputArray[j];
-                    inputArray[j] = temp;
+
+            for (int j = 0 ; j < (inputArray.length -1) - i ; j ++){
+
+                if(inputArray[j] > inputArray [j+1]){
+                    swapFlag = false;
+                    int temp = inputArray [j];
+                    inputArray[j] = inputArray [j+1];
+                    inputArray[j+1] = temp;
                 }
             }
 
         }
-
     }
+
 }
