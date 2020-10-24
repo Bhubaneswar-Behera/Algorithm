@@ -1,6 +1,8 @@
 package com.utils.insertionsort;
 
 /**
+ * Like playing cards
+ *
  * Best Case : Omega (n)
  * Worst Case : O (n 2)
  * Average Case : O (n 2)
@@ -36,10 +38,13 @@ public class InsertionSort {
         for(i = 1 ; i < inputArray.length ; i++){ // Iterate over all array
             temp = inputArray [i];
             j = i;
+            //Comparing the values in the window
             while ( j > 0 && inputArray [j -1] > temp) {
+                //swap the values
                 inputArray [j]= inputArray [j -1];
                 j--;
             }
+            //assign the value of a[j-1] after the swap
             inputArray[j] =  temp;
         }
     }
