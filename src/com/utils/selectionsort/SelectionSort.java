@@ -3,6 +3,11 @@ package com.utils.selectionsort;
 
 /**
  *
+ * 1st run : Put the largest element at nth place
+ * 2nd run : Put the next largest element at n -1 place
+ * . ....
+ *
+ *
  * Best Case : O (n 2)
  * Worst Case : O (n 2)
  * Average Case : Theta (n 2)
