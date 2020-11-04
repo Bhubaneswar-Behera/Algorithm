@@ -1,5 +1,7 @@
 package com.utils.bubblesort;
 
+import java.util.Arrays;
+
 /**
  *
  * Best Case : O (n 2)
@@ -12,22 +14,12 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] inputArray = {1,4,0,3,9,6,2};
 
-        System.out.println("Before sorting");
-        printArray(inputArray);
-
+        System.out.println("Before sorting : " + Arrays.toString(inputArray));
 
         //bubbleSort(inputArray);
         bubbleSortWithIndexZero(inputArray);
 
-        System.out.println("\n After sorting");
-        printArray(inputArray);
-
-
-    }
-    private static void printArray(int[] inputArray){
-        for(int i = 0 ; i < inputArray.length ; i++){
-            System.out.print(" " +inputArray[i]);
-        }
+        System.out.println("\n After sorting : " + Arrays.toString(inputArray));
     }
 
     /**
