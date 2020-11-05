@@ -1,7 +1,12 @@
 package com.utils.insertionsort;
 
+import java.util.Arrays;
+
 /**
+ *  Reference : https://www.youtube.com/watch?v=9DK8w7U43lI
+ *
  * Like playing cards
+ * Make a temporary for copying the data
  *
  * Best Case : Omega (n)
  * Worst Case : O (n 2)
@@ -11,25 +16,16 @@ package com.utils.insertionsort;
 public class InsertionSort {
 
     public static void main(String[] args) {
-
-
         int[] inputArray =  {4, 0, 1, 5, 2, 6};
 
-        System.out.println("Before sorting");
-        printArray(inputArray);
-
+        System.out.println("Before sorting : " + Arrays.toString(inputArray));
 
         insertionSort(inputArray);
 
-        System.out.println("\n After sorting");
-        printArray(inputArray);
+        System.out.println("\n After sorting : " + Arrays.toString(inputArray));
+
     }
 
-    private static void printArray(int[] inputArray){
-        for(int i = 0 ; i < inputArray.length ; i++){
-            System.out.print(" " +inputArray[i]);
-        }
-    }
     private static void insertionSort(int[] inputArray) {
         int i ; //for incrementing the array
         int j; //for comparision
@@ -37,15 +33,16 @@ public class InsertionSort {
 
         for(i = 1 ; i < inputArray.length ; i++){ // Iterate over all array
             temp = inputArray [i];
-            j = i;
+            j = i - 1;
             //Comparing the values in the window
-            while ( j > 0 && inputArray [j -1] > temp) {
+            while ( j >= 0 && inputArray [j] > temp) {
                 //swap the values
-                inputArray [j]= inputArray [j -1];
+                inputArray [j+1]= inputArray [j];
+                //Decrease the counter
                 j--;
             }
-            //assign the value of a[j-1] after the swap
-            inputArray[j] =  temp;
+            //assign the value of a[j+1] after the swap
+            inputArray[j+1] =  temp;
         }
     }
 
