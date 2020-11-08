@@ -1,6 +1,11 @@
 package com.utils.mergesort;
 
+import java.util.Arrays;
+
 /**
+ * Reference :  https://www.youtube.com/watch?v=jlHkDBEumP0
+ *
+ * Based on Divide-and-conquer
  * Time Complexity O (n log n)
  *
  *
@@ -14,14 +19,12 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] inputArray = {48,36,13,52,19,94,21};
 
-        System.out.println("Before sorting");
-        printArray(inputArray);
+        System.out.println("Before sorting : "+ Arrays.toString(inputArray));
 
         MergeSort mergeSort = new MergeSort();
         mergeSort.sort(inputArray);
 
-        System.out.println("\n After sorting");
-        printArray(inputArray);
+        System.out.println("After sorting : "+ Arrays.toString(inputArray));
     }
 
     private void sort (int[] inputArray){
@@ -30,12 +33,11 @@ public class MergeSort {
         this.tempMergeArray = new int[length];
 
         divideArray(0 , length -1);
-
     }
 
     private void divideArray (int lowerIndex, int higherIndex){
 
-            if(lowerIndex < higherIndex){
+            if(lowerIndex < higherIndex){// At least 2 elements should be there in the array
                 int middle = (lowerIndex + higherIndex)/2;
 
                 //Will be used to sort teh left side of the array
@@ -45,13 +47,13 @@ public class MergeSort {
                 divideArray(middle+1, higherIndex);
 
                 //start merging the array
-                mergeArray(lowerIndex,middle,higherIndex);
+                mergeArray(lowerIndex , middle, higherIndex);
             }
     }
 
     private void mergeArray(int lowerIndex, int middle , int higherIndex){
 
-        //put all the elements present inside the array in the temporary array.
+        //copy all the elements to a temporary array.
         for (int i = lowerIndex ; i <=higherIndex ;i++) {
             tempMergeArray[i] = array[i];
         }
@@ -60,7 +62,7 @@ public class MergeSort {
         //remain unchanged
         int i = lowerIndex;
         int j = middle +1;
-        //making lower index as it will go till the last of the higherIndex in the new temporary array
+        //making this as lower index for the new array
         int k = lowerIndex;
 
         while (i <= middle && j <= higherIndex){
@@ -80,7 +82,7 @@ public class MergeSort {
                 array[k] = tempMergeArray[j];
                 j++;
             }
-            //move to the next element of array
+            //move to the next element of the new array
             k++;
         }
         //Option 1: Put the remaining unplaced elements at the end of the array
@@ -90,26 +92,24 @@ public class MergeSort {
             i++;
         }*/
 
-        //Option 2: Put the remaining unplaced elements at the end of the array
+        //Option 2: All the elements from the left array has been placed in the new  array.
+        // But there may be some elements in the right array not being placed in the result array .
+        // Put the remaining unplaced elements at the end of the array
         if(i > middle ){
-            while (j < higherIndex){
+            //If some left over elements are there in the the right array then place those in the result array.
+            while (j <= higherIndex){
                 array[k] = tempMergeArray[j];
                 j++;
                 k++;
             }
         } else{
+            //some left over elements are there in the the left array then place those in the result array.
             while(i <= middle){
                 array[k] = tempMergeArray[i];
                 i++;
                 k++;
 
             }
-        }
-    }
-
-    private static void printArray(int[] inputArray){
-        for(int i = 0 ; i < inputArray.length ; i++){
-            System.out.print(" " +inputArray[i]);
         }
     }
 }
